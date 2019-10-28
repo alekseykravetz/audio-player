@@ -1,44 +1,55 @@
 import React from 'react';
-import { Switch, Route, Redirect, Link } from 'react-router-dom';
 
-import store from './store';
-
-import HomeRoute from './routes/home.route';
-import AboutRoute from './routes/about.route';
-import PageUnauthorized from './routes/unauthorized.route';
-import PageNotFound from './routes/not-found.route';
-
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route {...rest} render={(props) => (
-        store.user === null
-            ? <Redirect to="/unauthorized" />
-            : <Component {...props} />
-    )} />
-);
 
 export default class App extends React.Component {
+
+    playAudio() {
+
+        // const a = new Audio('https://drive.google.com/open?id=1stQJZZsWNIWWNz0DpKb6A7_GYt3MIdCr');
+        // a.play();
+
+        const x = document.getElementById('myAudioWav');
+        const x2 = document.getElementById('myAudioWav2');
+        const x3 = document.getElementById('myAudioWav3');
+        x.play();
+        x2.play();
+        x3.play();
+    }
+
+    pauseAudio() {
+        const x = document.getElementById('myAudioWav');
+        const x2 = document.getElementById('myAudioWav2');
+        const x3 = document.getElementById('myAudioWav3');
+        x.pause();
+        x2.pause();
+        x3.pause();
+    }
+
     render() {
 
         return (
             <div className="app">
 
                 <div className="app-top-bar">
-
-                    <Link to="/aaa">
-                        <div className="logo" />
-                    </Link>
-
+                    <div className="logo" />
                 </div>
 
                 <div className="app-content">
-                    <Switch>
-                        <Route path="/unauthorized" component={PageUnauthorized} />
-                        <PrivateRoute exact path="/" component={HomeRoute} />
-                        <PrivateRoute path="/one" component={HomeRoute} />
-                        <PrivateRoute path="/two" component={AboutRoute} />
-                        <Route path="**" component={PageNotFound} />
-                    </Switch>
+
+                    {/* <audio id="myAudioWav" src="https://drive.google.com/open?id=1stQJZZsWNIWWNz0DpKb6A7_GYt3MIdCr" type="audio/wav" /> */}
+
+                    <audio id="myAudio" src="./assets/audio/adon.mp3" type="audio/mpeg" />
+
+                    <audio id="myAudioWav" src="./assets/audio/adon-vocal.wav" type="audio/wav" />
+                    <audio id="myAudioWav2" src="./assets/audio/adon-rest.wav" type="audio/wav" />
+                    <audio id="myAudioWav3" src="./assets/audio/adon-drums.wav" type="audio/wav" />
+
+                    <p>Click the buttons to play or pause the audio.</p>
+
+                    <button onClick={this.playAudio} type="button">Play Audio</button>
+                    <button onClick={this.pauseAudio} type="button">Pause Audio</button>
+
+
                 </div>
             </div>
         );

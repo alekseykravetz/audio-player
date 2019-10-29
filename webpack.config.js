@@ -25,7 +25,8 @@ module.exports = {
     devtool: 'source-map',
     plugins: [
         new CopyPlugin([
-            { from: './src/statics'}
+            { from: './src/statics' },
+            { from: './src/server.js' },
         ]),
         new webpack.HotModuleReplacementPlugin()
     ],

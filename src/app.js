@@ -1,8 +1,6 @@
 import React from 'react';
 
 
-// const a = new Audio('https://drive.google.com/open?id=1stQJZZsWNIWWNz0DpKb6A7_GYt3MIdCr');
-// a.play();
 
 
 export default class App extends React.Component {
@@ -11,12 +9,18 @@ export default class App extends React.Component {
         this.vocalAudio = document.getElementById('vocalAudio');
         this.drumsAudio = document.getElementById('drumsAudio');
         this.restAudio = document.getElementById('restAudio');
+
+
+        this.urlAudio = new Audio('https://drive.google.com/open?id=1stQJZZsWNIWWNz0DpKb6A7_GYt3MIdCr');
+        // a.play();
     }
 
     playAudio = () => {
-        this.vocalAudio.play();
-        this.drumsAudio.play();
-        this.restAudio.play();
+        // this.vocalAudio.play();
+        // this.drumsAudio.play();
+        // this.restAudio.play();
+
+        this.urlAudio.play();
     }
 
     pauseAudio = () => {

@@ -11,16 +11,16 @@ export default class App extends React.Component {
         this.restAudio = document.getElementById('restAudio');
 
 
-        this.urlAudio = new Audio('https://drive.google.com/open?id=1stQJZZsWNIWWNz0DpKb6A7_GYt3MIdCr');
+        // this.urlAudio = new Audio('https://drive.google.com/open?id=1stQJZZsWNIWWNz0DpKb6A7_GYt3MIdCr');
         // a.play();
     }
 
     playAudio = () => {
-        // this.vocalAudio.play();
-        // this.drumsAudio.play();
-        // this.restAudio.play();
+        this.vocalAudio.play();
+        this.drumsAudio.play();
+        this.restAudio.play();
 
-        this.urlAudio.play();
+        // this.urlAudio.play();
     }
 
     pauseAudio = () => {
@@ -67,10 +67,28 @@ export default class App extends React.Component {
 
                 <div className="app-content">
 
+                    {/* <audio id="vocalAudio" controls="controls">
+                        <source src="./assets/audio/adon-vocal.wav" type="audio/wav" />
+                    </audio>
+                    <audio id="drumsAudio" controls="controls">
+                        <source src="./assets/audio/adon-drums.wav" type="audio/wav" />
+                    </audio>
+                    <audio id="restAudio" controls="controls">
+                        <source src="./assets/audio/adon-rest.wav" type="audio/wav" />
+                    </audio> */}
+
+
+                    {/* <audio controls="controls">
+                        <source src="./assets/audio/adon.mp3" type="audio/mpeg" />
+                    </audio> */}
+
                     <audio id="myAudio" src="./assets/audio/adon.mp3" type="audio/mpeg" />
-                    <audio id="vocalAudio" src="./assets/audio/adon-vocal.wav" type="audio/wav" />
+                    {/* <audio id="vocalAudio" src="./assets/audio/adon-vocal.wav" type="audio/wav" />
                     <audio id="drumsAudio" src="./assets/audio/adon-drums.wav" type="audio/wav" />
-                    <audio id="restAudio" src="./assets/audio/adon-rest.wav" type="audio/wav" />
+                    <audio id="restAudio" src="./assets/audio/adon-rest.wav" type="audio/wav" /> */}
+                    <audio id="vocalAudio" src="./assets/audio/vocal.mp3" type="audio/mpeg" />
+                    <audio id="drumsAudio" src="./assets/audio/band.mp3" type="audio/mpeg" />
+                    <audio id="restAudio" src="./assets/audio/all.mp3" type="audio/mpeg" />
 
                     <div className="app-vertical-container-example">
                         <button onClick={this.playAudio} type="button">Play Audio</button>
@@ -82,12 +100,23 @@ export default class App extends React.Component {
                         <button onClick={this.volumeDown} type="button">down</button>
                     </div>
 
-                    <spna>Vocal</spna>
-                    <input type="range" min="1" max="100" onChange={this.onVocalSliderChange} />
-                    <spna>Drums</spna>
-                    <input type="range" min="1" max="100" onChange={this.onDrumsSliderChange} />
-                    <spna>Rest</spna>
-                    <input type="range" min="1" max="100" onChange={this.onRestSliderChange} />
+                    <div className="app-vertical-container-example">
+                        <spna>Vocal</spna>
+                        <input type="range" min="1" max="100" onChange={this.onVocalSliderChange} />
+                    </div>
+                    <div className="app-vertical-container-example">
+                        <spna>Band</spna>
+                        <input type="range" min="1" max="100" onChange={this.onDrumsSliderChange} />
+                    </div>
+                    <div className="app-vertical-container-example">
+                        <spna>All</spna>
+                        <input type="range" min="1" max="100" onChange={this.onRestSliderChange} />
+                    </div>
+
+
+
+
+
 
                 </div>
             </div>

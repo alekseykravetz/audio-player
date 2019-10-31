@@ -61,64 +61,47 @@ export default class App extends React.Component {
         return (
             <div className="app">
 
-                <div className="app-top-bar">
-                    <div className="logo" />
+                <div style={{display: 'flex', margin: 5}}>
+                    <div style={{ margin: 5}} className="app-button" onClick={this.playAudio} type="button">Play</div>
+                    <div style={{ margin: 5}} className="app-button" onClick={this.pauseAudio} type="button">Pause</div>
                 </div>
 
-                <div className="app-content">
+                <div className="container">
+                    <span>Vocal</span>
+                    <input type="range" min="1" max="100" onChange={this.onVocalSliderChange} />
+                </div>
+                <div className="container">
+                    <span>Band</span>
+                    <input type="range" min="1" max="100" onChange={this.onDrumsSliderChange} />
+                </div>
+                <div className="container">
+                    <span>All</span>
+                    <input type="range" min="1" max="100" onChange={this.onRestSliderChange} />
+                </div>
 
-                    {/* <audio id="vocalAudio" controls="controls">
-                        <source src="./assets/audio/adon-vocal.wav" type="audio/wav" />
+                <div className="container">
+                    <audio id="vocalAudio" controls="controls">
+                        <source src="./assets/audio/vocal.mp3" type="audio/mpeg" />
                     </audio>
+                </div>
+                <div className="container">
                     <audio id="drumsAudio" controls="controls">
-                        <source src="./assets/audio/adon-drums.wav" type="audio/wav" />
+                        <source src="./assets/audio/band.mp3" type="audio/mpeg" />
                     </audio>
-                    <audio id="restAudio" controls="controls">
-                        <source src="./assets/audio/adon-rest.wav" type="audio/wav" />
-                    </audio> */}
-
-
-                    {/* <audio controls="controls">
-                        <source src="./assets/audio/adon.mp3" type="audio/mpeg" />
-                    </audio> */}
-
-                    <audio id="myAudio" src="./assets/audio/adon.mp3" type="audio/mpeg" />
-                    {/* <audio id="vocalAudio" src="./assets/audio/adon-vocal.wav" type="audio/wav" />
-                    <audio id="drumsAudio" src="./assets/audio/adon-drums.wav" type="audio/wav" />
-                    <audio id="restAudio" src="./assets/audio/adon-rest.wav" type="audio/wav" /> */}
-                    <audio id="vocalAudio" src="./assets/audio/vocal.mp3" type="audio/mpeg" />
-                    <audio id="drumsAudio" src="./assets/audio/band.mp3" type="audio/mpeg" />
-                    <audio id="restAudio" src="./assets/audio/all.mp3" type="audio/mpeg" />
-
-                    <div className="app-vertical-container-example">
-                        <button onClick={this.playAudio} type="button">Play Audio</button>
-                        <button onClick={this.pauseAudio} type="button">Pause Audio</button>
-                    </div>
-
-                    <div className="app-vertical-container-example">
-                        <button onClick={this.volumeUp} type="button">up</button>
-                        <button onClick={this.volumeDown} type="button">down</button>
-                    </div>
-
-                    <div className="app-vertical-container-example">
-                        <spna>Vocal</spna>
-                        <input type="range" min="1" max="100" onChange={this.onVocalSliderChange} />
-                    </div>
-                    <div className="app-vertical-container-example">
-                        <spna>Band</spna>
-                        <input type="range" min="1" max="100" onChange={this.onDrumsSliderChange} />
-                    </div>
-                    <div className="app-vertical-container-example">
-                        <spna>All</spna>
-                        <input type="range" min="1" max="100" onChange={this.onRestSliderChange} />
-                    </div>
-
-
-
-
-
-
                 </div>
+                <div className="container">
+                    <audio id="restAudio" controls="controls">
+                        <source src="./assets/audio/all.mp3" type="audio/mpeg" />
+                    </audio>
+                </div>
+
+
+
+
+
+
+
+
             </div>
         );
     }
